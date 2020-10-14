@@ -34,7 +34,8 @@ def first_version(border_down, border_up, rand):
     random_list[i_max] = random_list[i_min]
     random_list[i_min] = max_value
     sum_list = []
-    sum_list.extend((random_list, i, max_elem, min_elem, i_max, i_min, max_value))
+    sum_list.extend((border_down, border_up, rand, random_list, i,
+                     max_elem, min_elem, i_max, i_min, max_value))
     return sum_list
 
 
@@ -48,7 +49,8 @@ def second_version(border_down, border_up, rand):
     random_list[max_value_ind] = min_value
     random_list[min_value_ind] = max_value
     sum_list = []
-    sum_list.extend((random_list, max_value_ind, min_value_ind, max_value, min_value))
+    sum_list.extend((border_down, border_up, rand, random_list,
+                     max_value_ind, min_value_ind, max_value, min_value))
     return sum_list
 
 
@@ -59,7 +61,7 @@ def third_version(border_down, border_up, rand):
     random_list[random_list.index(min(random_list))] = random_list[random_list.index(min(random_list))], \
                                                        random_list[random_list.index(max(random_list))]
     sum_list = []
-    sum_list.append(random_list)
+    sum_list.extend((border_down, border_up, rand, random_list))
     return sum_list
 
 
@@ -73,8 +75,8 @@ print('first_version - Под переменные выделено памяти
 print('second_version - Под переменные выделено памяти: {0}.'.format(mem_2))
 print('third_version - Под переменные выделено памяти: {0}.'.format(mem_3))
 
-# first_version - Под переменные выделено памяти: 176.
-# second_version - Под переменные выделено памяти: 148.
-# third_version - Под переменные выделено памяти: 92.
+# first_version - Под переменные выделено памяти: 218.
+# second_version - Под переменные выделено памяти: 190.
+# third_version - Под переменные выделено памяти: 134.
 
 # Вывод: Лучший вариант - 3, т.к. он занимает меньше всего памяти, к тому же он довольно лакончиный.
