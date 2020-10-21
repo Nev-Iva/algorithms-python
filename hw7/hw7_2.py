@@ -16,10 +16,10 @@ def merge_sort(ex_list, compare=operator.lt):
         med_ind = int(med_ind)
         left = merge_sort(ex_list[:med_ind], compare)
         right = merge_sort(ex_list[med_ind:], compare)
-        return merge(left, right, compare)
+        return merge_list(left, right, compare)
 
 
-def merge(left, right, compare):
+def merge_list(left, right, compare):
     result = []
     i = 0
     j = 0
